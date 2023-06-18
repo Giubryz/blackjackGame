@@ -1,15 +1,29 @@
-let firstCard = 5
-let secondCard = 11
-let sum = firstCard + secondCard
-let hasBlackJack = false
+let btnFirstCard = document.getElementById("fstCard");
+let btnSecondCard = document.getElementById("scnCard");
 
-if (sum <= 20) {
-    console.log("Do you want to draw a new card?")
-} else if (sum === 21) {
-    console.log("BlackJack!")
-    hasBlackJack = true
-} else {
-    console.log("You lost")
+function cardRandomizer(min = 1, max = 12){
+    let difference = max - min;
+    let rand = Math.random();
+    rand = Math.floor(rand*difference);
+    rand = rand + min;
+    return rand;
 }
 
-console.log(hasBlackJack)
+let firstCard = cardRandomizer();
+let secondCard = cardRandomizer();
+let sum = firstCard + secondCard;
+
+function hasBlackJack(){
+    if (sum <= 20) {
+        alert("Do you want to draw a new card?")
+    } else if (sum === 21) {
+        alert("BlackJack!")
+    hasBlackJack = true
+    } else {
+        alert("You lost")
+    }
+}
+
+hasBlackJack();
+
+console.log(firstCard, secondCard, sum)
